@@ -1,0 +1,1519 @@
+/* -------------------------
+   Reset y fuentes
+------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #f0f4ff, #d9e4ff);
+    color: #1f2937;
+}
+
+/* -------------------------
+   Layout general
+------------------------- */
+.dashboard-donador {
+    display: flex;
+    height: 100%;
+}
+
+/* -------------------------
+   Sidebar
+------------------------- */
+.sidebar {
+    width: 260px;
+    background: #ffffff;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 15px rgba(0,0,0,0.06);
+}
+
+.sidebar h2 {
+    margin-bottom: 30px;
+    color: #2d3748;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sidebar button {
+    background: #f8fafc;
+    border: none;
+    padding: 14px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.sidebar button:hover {
+    background: #c7d2fe;
+    transform: translateX(6px);
+}
+
+.logout {
+    margin-top: auto;
+    background: #fecaca !important;
+    color: #b91c1c;
+    font-weight: 600;
+}
+
+.logout:hover {
+    background: #fca5a5 !important;
+}
+
+/* -------------------------
+   Main
+------------------------- */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    background: #ffffff;
+    padding: 25px 35px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+header h1 {
+    color: #1f2937;
+    margin-bottom: 6px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+header p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* Contenido */
+.contenido {
+    padding: 25px 35px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* -------------------------
+   Cards
+------------------------- */
+.cards {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+
+.card {
+    flex: 1;
+    min-width: 240px;
+    background: #ffffff;
+    padding: 22px 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 12px;
+}
+
+.card p {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+/* -------------------------
+   Formularios
+------------------------- */
+form {
+    background: #ffffff;
+    padding: 25px 28px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #334155;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    outline: none;
+    font-size: 14px;
+    transition: 0.25s;
+}
+
+input:focus, select:focus {
+    border-color: #7f9cf5;
+    box-shadow: 0 0 0 3px rgba(124, 140, 255, 0.15);
+}
+
+/* Botones */
+button.btn-nueva {
+    padding: 12px 20px;
+    background: #7f9cf5;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+button.btn-nueva:hover {
+    background: #647acb;
+}
+
+/* -------------------------
+   Tabla de donaciones
+------------------------- */
+.table-donador table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.table-donador th, .table-donador td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+.table-donador th {
+    background: #f8fafc;
+    font-weight: 600;
+}
+
+.table-donador tr:last-child td {
+    border-bottom: none;
+}
+
+/* Estado de la donación */
+.table-donador td {
+    color: #1f2937;
+}
+
+.table-donador td.estado-pendiente {
+    color: #f59e0b;
+    font-weight: 600;
+}
+
+.table-donador td.estado-completado {
+    color: #10b981;
+    font-weight: 600;
+}
+
+/* -------------------------
+   Secciones ocultas
+------------------------- */
+.seccion.oculto {
+    display: none;
+}
+
+/* -------------------------
+   Animación
+------------------------- */
+@keyframes fade {
+    from {opacity:0; transform: translateY(8px);}
+    to {opacity:1; transform: translateY(0);}
+}
+
+.seccion {
+    animation: fade 0.3s ease;
+}
+
+/* -------------------------
+   Historial de Donaciones
+------------------------- */
+.table-donador {
+    margin-top: 20px;
+}
+
+.table-donador table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.table-donador th, .table-donador td {
+    padding: 14px 18px;
+    font-size: 14px;
+    color: #1f2937;
+    text-align: left;
+}
+
+.table-donador th {
+    background: #f3f4f6;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.table-donador tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+    transition: 0.2s;
+}
+
+.table-donador tbody tr:last-child {
+    border-bottom: none;
+}
+
+.table-donador tbody tr:hover {
+    background: #f1f5fe;
+    transform: translateX(2px);
+}
+
+/* Badges para estados */
+.table-donador td.estado {
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 12px;
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    font-size: 13px;
+}
+
+.table-donador td.estado-pendiente {
+    background: #f59e0b; /* naranja */
+}
+
+.table-donador td.estado-completado {
+    background: #10b981; /* verde */
+}
+
+/* Responsive para dispositivos pequeños */
+@media (max-width: 768px) {
+    .table-donador table, 
+    .table-donador thead, 
+    .table-donador tbody, 
+    .table-donador th, 
+    .table-donador td, 
+    .table-donador tr {
+        display: block;
+    }
+
+    .table-donador th {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .table-donador td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        margin-bottom: 12px;
+    }
+
+    .table-donador td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 16px;
+        font-weight: 600;
+        color: #64748b;
+    }
+}
+
+.estado {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+}
+
+.estado-pendiente {
+    background-color: #facc15; /* amarillo */
+}
+
+.estado-completado {
+    background-color: #22c55e; /* verde */
+}
+
+.estado-cancelado {
+    background-color: #ef4444; /* rojo */
+}
+
+/* -------------------------
+   Perfil moderno
+------------------------- */
+.perfil-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+    /* Título centrado */
+    #perfil .perfil-titulo {
+        text-align: center;
+        font-size: 28px;
+        font-weight: 700;
+        color: #1f2937;
+        margin-bottom: 20px;
+    }
+
+.perfil-avatar {
+    flex: 0 0 150px;
+    text-align: center;
+}
+
+.perfil-avatar img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #7f9cf5;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.perfil-avatar img:hover {
+    transform: scale(1.05);
+}
+
+.perfil-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.perfil-info h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.perfil-info .rol {
+    font-size: 16px;
+    font-weight: 500;
+    color: #4f46e5;
+}
+
+.perfil-datos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.perfil-datos .dato {
+    background: #f1f5fe;
+    padding: 12px 18px;
+    border-radius: 12px;
+    flex: 1 1 200px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s;
+}
+
+.perfil-datos .dato:hover {
+    background: #e0e7ff;
+}
+
+.perfil-datos .label {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.perfil-datos .value {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1f2937;
+}
+
+.btn-editar {
+    margin-top: 10px;
+    width: 150px;
+    padding: 10px 15px;
+    background: #7f9cf5;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-editar:hover {
+    background: #647acb;
+}
+
+.oculto {
+    display: none !important;
+  }
+
+  .password-wrapper {
+    position: relative;
+  }
+  
+  .password-wrapper input {
+    width: 100%;
+    padding-right: 40px;
+    box-sizing: border-box;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 13px;
+    cursor: pointer;
+    color: #555;
+  }
+  
+  .toggle-password:hover {
+    color: #000;
+  }
+  
+  #progresoNivel {
+    display: block;
+    margin-top: 5px;
+    color: #6b7280;
+  }
+  
+  .barra-contenedor {
+    width: 100%;
+    height: 18px;
+    background: #e5e7eb;
+    border-radius: 20px;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+  
+  .barra-progreso {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+    transition: width 0.5s ease;
+  }
+  
+/* Notificación de nivel  */
+.notificacion-nivel {
+    position: fixed;            
+    top: 20px;                 
+    right: 20px;                
+    background-color: #4CAF50;  
+    color: white;               
+    padding: 15px 20px;        
+    border-radius: 10px;      
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;              
+    transform: translateY(-50px);
+    transition: all 0.5s ease;  
+    z-index: 9999;             
+    font-weight: bold;         
+}
+
+.notificacion-nivel.mostrar {
+    opacity: 1;                
+    transform: translateY(0);   
+}
+
+
+
+
+/* Contenedor centrado */
+.grafica-contenedor {
+    width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Hace que el canvas se adapte */
+#graficaDonaciones {
+    width: 100% !important;
+    height: auto !important;
+}
+
+
+/* =========================== */
+/* 🌟 TIPOGRAFÍA Y BASE GLOBAL */
+/* =========================== */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h2, h3, h4 {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* =========================== */
+/* 🏠 SECCIÓN DONAR */
+/* =========================== */
+#donar {
+    background: #fff;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+#donar h2 {
+    margin-bottom: 20px;
+    font-size: 26px;
+    text-align: center;
+    color: #34495e;
+}
+
+#donar .form-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+#donar label {
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #555;
+}
+
+#donar input,
+#donar select {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: border 0.2s;
+}
+
+#donar input:focus,
+#donar select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* =========================== */
+/* 🔘 BOTONES PRINCIPALES */
+/* =========================== */
+.btn-nueva {
+    background: #3498db;
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.btn-nueva:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+.btn-secundario {
+    background: #ecf0f1;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.btn-secundario:hover {
+    background: #dcdde1;
+    transform: translateY(-2px);
+}
+
+/* =========================== */
+/* 🌑 MODALES PRINCIPALES */
+/* =========================== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.modal.oculto {
+    display: none;
+}
+
+.modal-contenido {
+    background: #fff;
+    width: 90%;
+    max-width: 1800px;
+    max-height: 85vh;
+    border-radius: 12px;
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+    animation: modalScale 0.25s ease;
+}
+
+@keyframes modalScale {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* =========================== */
+/* 🏷 HEADER MODAL */
+/* =========================== */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e1e1e1;
+    padding-bottom: 10px;
+}
+
+.modal-header h3 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.cerrar-modal {
+    font-size: 22px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.2s;
+}
+
+.cerrar-modal:hover {
+    color: #e74c3c;
+}
+
+/* =========================== */
+/* 📜 BODY MODAL */
+/* =========================== */
+.modal-body {
+    margin-top: 15px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 10px;
+}
+
+/* =========================== */
+/* 🧩 GRID DE CATEGORÍAS Y UTILES */
+/* =========================== */
+#contenedorUtiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+    padding: 10px 5px;
+}
+
+/* Cada bloque de categoría */
+#contenedorUtiles > div {
+    background: #f0f4f8;
+    border-radius: 12px;
+    padding: 12px 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+/* Título de categoría */
+#contenedorUtiles h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #dce3eb;
+    padding-bottom: 6px;
+}
+
+/* Tarjeta de cada útil */
+#contenedorUtiles div > div {
+    background: #fff;
+    border-radius: 10px;
+    padding: 8px 6px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+#contenedorUtiles div > div:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+}
+
+/* Checkbox centrado */
+#contenedorUtiles input[type="checkbox"] {
+    margin-bottom: 6px;
+    transform: scale(1.3);
+}
+
+/* Label del útil */
+#contenedorUtiles label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #34495e;
+    text-align: center;
+}
+
+/* Input cantidad moderno */
+.input-cantidad {
+    margin-top: 5px;
+    display: none;
+}
+
+.input-cantidad input {
+    width: 60px;
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid #b0c4de;
+    text-align: center;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.input-cantidad input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52,152,219,0.4);
+}
+
+
+/* =========================== */
+/* 🧾 RESUMEN DE DONACIÓN */
+/* =========================== */
+#modalResumen .modal-body {
+    padding: 0;
+}
+
+.item-resumen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    background: #fafafa;
+}
+
+.item-resumen:last-child {
+    border-bottom: none;
+}
+
+.item-resumen input {
+    width: 50px;
+    padding: 4px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.item-resumen button {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.item-resumen button:hover {
+    background: #c0392b;
+}
+
+/* =========================== */
+/* 📝 RESUMEN DENTRO DEL FORMULARIO */
+/* =========================== */
+#resumenUtiles {
+    background: #f4f6f8;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #444;
+}
+
+/* =========================== */
+/* RESPONSIVE */
+@media (max-width: 480px) {
+    #contenedorUtiles {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    #donar {
+        padding: 20px 15px;
+    }
+
+    .item-util label {
+        font-size: 13px;
+    }
+
+    .modal-contenido {
+        padding: 15px 20px;
+    }
+}
+
+
+/* =========================== */
+/* 🔘 BOTONES DE FILTRO POR CATEGORÍA */
+/* =========================== */
+.filtros-categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.filtros-categorias button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: #ecf0f1;
+    color: #34495e;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.filtros-categorias button:hover {
+    background-color: #3498db;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.filtros-categorias button.active {
+    background-color: #2980b9;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* =========================== */
+/* RESPONSIVE PARA BOTONES DE FILTRO */
+/* =========================== */
+@media (max-width: 480px) {
+    .filtros-categorias button {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+}
+
+/* ============================= */
+/* BOTÓN CONTINUAR */
+/* ============================= */
+#confirmarMonto {
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    transition: all 0.2s ease;
+  }
+  
+  #confirmarMonto:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(22, 163, 74, 0.35);
+  }
+  
+  #confirmarMonto:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+  
+  /* ============================= */
+  /* BOTÓN CANCELAR */
+  /* ============================= */
+  #cancelarMonto {
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: #f9fafb;
+    color: #374151;
+    transition: all 0.2s ease;
+  }
+  
+  #cancelarMonto:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+    transform: translateY(-2px);
+  }
+  
+  #cancelarMonto:active {
+    transform: translateY(0);
+  }
+  
+/* ===== NOTIFICACIONES ===== */
+#toast-container{
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    pointer-events: none;
+  }
+  
+  .toast{
+    background: #2c3e50;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: auto;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    animation: fadeSlide 0.3s ease forwards;
+  }
+  
+  .toast.success{ border-left: 5px solid #2ecc71; }
+  .toast.error{ border-left: 5px solid #ff0000; }
+  .toast.warning{ border-left: 5px solid #ff0000; }
+  
+  @keyframes fadeSlide{
+    from{opacity:0; transform:translateY(-6px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+
+/* ===============================
+   SECCIÓN MENSAJES
+=============================== */
+
+/* Contenedor principal del chat */
+#mensajes .chat-container {
+    display: flex;
+    gap: 20px;
+    height: calc(100vh - 100px); /* Ajuste según header */
+    padding: 20px;
+  }
+  
+  /* Lista de conversaciones */
+  #mensajes #listaConversaciones {
+    width: 250px;
+    height: 600px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    overflow-y: auto;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  #mensajes #listaConversaciones p {
+    color: #888;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Cada usuario / conversación */
+  #mensajes .usuario-conversacion {
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    background-color: #f1f3f6;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  #mensajes .usuario-conversacion:hover,
+  #mensajes .usuario-conversacion.activo {
+    background-color: #dfe6ed;
+  }
+  
+  /* Chat activo */
+  #mensajes #chatActivo {
+    flex: 1;
+    display: flex;
+    height: 600px;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+  
+  /* Contenedor de mensajes */
+  #mensajes #chatMensajes {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f9fafc;
+  }
+  
+  /* Burbuja de mensaje */
+  #mensajes .mensaje {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  #mensajes .mensaje.own {
+    background-color: #1f8ef1;
+    color: #fff;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+  }
+  
+  #mensajes .mensaje.other {
+    background-color: #e0e6ed;
+    color: #333;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+  }
+  
+  /* Input para enviar mensaje */
+  #mensajes .chat-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+  }
+  
+  #mensajes #mensajeInput {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    font-size: 14px;
+  }
+  
+  #mensajes #enviarMensaje {
+    padding: 12px 20px;
+    background-color: #1f8ef1;
+    color: #fff;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  
+  #mensajes #enviarMensaje:hover {
+    background-color: #0d6efd;
+  }
+  
+  /* Scroll personalizado */
+  #mensajes #chatMensajes::-webkit-scrollbar,
+  #mensajes #listaConversaciones::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  #mensajes #chatMensajes::-webkit-scrollbar-thumb,
+  #mensajes #listaConversaciones::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+  }
+  
+  /* 🔹 Contenedor del botón */
+  .nuevo-mensaje-wrapper {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* 🔹 Botón Nuevo Mensaje */
+  .btn-nuevo-mensaje {
+    width: 100%;
+    padding: 8px 10px;
+    background: #4CAF50;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  /* 🔹 Hover */
+  .btn-nuevo-mensaje:hover {
+    background: #45a049;
+  }
+  
+  /* 🔹 Click */
+  .btn-nuevo-mensaje:active {
+    transform: scale(0.98);
+  }
+  
+  /* ===============================
+     MODAL NUEVO MENSAJE: 3 columnas verticales
+  =============================== */
+  .modal-nuevo-mensaje_msg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .modal-nuevo-mensaje_msg .modal-contenido-grande_msg {
+    background: #fff;
+    padding: 25px;
+    width: 900px; /* ancho para 3 columnas */
+    max-height: 80vh;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Barra de búsqueda */
+  #buscarUsuario {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+  }
+  
+  /* Contenedor de las 3 columnas */
+  .usuarios-roles {
+    display: flex;
+    gap: 15px;
+    height: 400px; /* altura del scroll */
+  }
+  
+  /* Cada columna vertical */
+  .usuarios-tipo_msg {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 10px;
+    overflow-y: auto; /* scroll si hay muchos usuarios */
+    box-sizing: border-box;
+  }
+  
+  /* Título de cada columna */
+  .usuarios-tipo_msg h4 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  /* Lista de usuarios dentro de cada columna */
+  .listaUsuariosAdmin_msg,
+  .listaUsuariosBeneficiario_msg,
+  .listaUsuariosDonador_msg {
+    display: flex;
+    flex-direction: column; /* apilado vertical */
+    gap: 6px;
+  }
+  
+  /* Tarjeta de usuario */
+  .usuario-item_msg {
+    padding: 8px 12px;
+    border-radius: 8px;
+    background-color: #e1f0ff;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  
+  .usuario-item_msg:hover {
+    background-color: #c3e0ff;
+    transform: translateX(2px);
+  }
+  
+  /* Botón de cerrar modal */
+  .btn-cerrar-modal_msg {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .btn-cerrar-modal_msg:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Botón "Cargar más" */
+  .btn-cargar-mas {
+    margin-top: 10px;
+    padding: 6px;
+    background-color: #1f8ef1;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.2s;
+  }
+  
+  .btn-cargar-mas:hover {
+    background-color: #0d6efd;
+  }
+  
+  /* Scroll personalizado */
+  .listaUsuariosAdmin_msg::-webkit-scrollbar,
+  .listaUsuariosBeneficiario_msg::-webkit-scrollbar,
+  .listaUsuariosDonador_msg::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .listaUsuariosAdmin_msg::-webkit-scrollbar-thumb,
+  .listaUsuariosBeneficiario_msg::-webkit-scrollbar-thumb,
+  .listaUsuariosDonador_msg::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+  }
+
+  /* ================== Header del Chat ================== */
+.chat-header {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre avatar y nombre */
+    background-color: rgb(215, 215, 215); /* Azul profesional */
+    color: black;
+    padding: 12px 16px;
+    font-weight: 600;
+    font-size: 16px;
+    border-bottom: 1px solid #0056b3;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px 8px 0 0;
+  }
+  
+  /* Avatar del usuario en el header */
+  .chat-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+  }
+  
+  /* Nombre del chat */
+  #nombreChatActivo {
+    font-size: 16px;
+    font-weight: 600;
+    flex: 1; /* Ocupa todo el espacio disponible */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Para mensajes */
+  #chatMensajes {
+    max-height: calc(100% - 60px - 56px); /* Restar header + input */
+    overflow-y: auto;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #f8f9fa;
+  }
+  
+  /* Mensajes propios */
+  .mensaje.own {
+    align-self: flex-end;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 16px 16px 0 16px;
+    max-width: 70%;
+    word-wrap: break-word;
+  }
+  
+  /* Mensajes de otros */
+  .mensaje.other {
+    align-self: flex-start;
+    background-color: #e9ecef;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 16px 16px 16px 0;
+    max-width: 70%;
+    word-wrap: break-word;
+  }
+  
+  /* Input del chat */
+  .chat-input {
+    display: flex;
+    gap: 8px;
+    padding: 8px 12px;
+    border-top: 1px solid #ccc;
+    background-color: white;
+    position: sticky;
+    bottom: 0;
+  }
+  
+  .chat-input input {
+    flex: 1;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+  
+  .chat-input button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .chat-input button:hover {
+    background-color: #0056b3;
+  }
+
+.mensaje-hora {
+  display: block;
+  font-size: 0.7em;
+  color: white;
+  margin-top: 2px;
+  text-align: right;
+}
+
+.chat-busqueda {
+    padding: 8px 12px;
+    border-bottom: 1px solid #ccc;
+    background-color: #f9f9f9;
+  }
+  
+  .chat-busqueda input {
+    width: 100%;
+    padding: 6px 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s;
+  }
+  
+  .chat-busqueda input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+  }
+
+  .mensaje-leido {
+    font-size: 12px;
+    color: #b60707;
+    margin-left: 5px;
+  }
+
+  .usuario-conversacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    position: relative;
+  }
+  
+  .badge-no-leidos {
+    background: red;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 12px;
+    margin-left: 8px;
+  }

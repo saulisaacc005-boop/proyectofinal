@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<link rel="stylesheet" href="Menu.css">
+
+<title>Plataforma Educativa</title>
+</head>
+
+<body>
+
+<div class="container" id="container">
+
+  <!-- REGISTRO -->
+  <div class="form-container sign-up">
+      <form id="formRegistro">
+        <h1>Crear Cuenta</h1>
+        <span>Registro institucional</span>
+        <br>
+        <input type="text" id="regInstitucion" placeholder="Nombre de la institución" required>
+        <input type="email" id="regCorreo" placeholder="Correo" required>
+        
+        <div class="pass-box">
+            <input type="password" id="regPass" placeholder="Contraseña" required>
+            <i class="fa-solid fa-eye toggle-pass" onclick="togglePass('regPass', this)"></i>
+        </div>
+        
+        <select id="rol" required>
+            <option value="">Seleccionar rol</option>
+            <option>Donador</option>
+            <option>Beneficiario</option>
+        </select>
+        
+        <button type="submit">Registrarse</button>
+      </form>
+  </div>
+
+  <!-- LOGIN -->
+  <div class="form-container sign-in">
+      <form id="formLogin">
+        <h1>Iniciar Sesión</h1>
+        <input type="email" id="loginCorreo" placeholder="Correo" required>
+        
+        <div class="pass-box">
+          <input type="password" id="loginPass" placeholder="Contraseña" required>
+          <i class="fa-solid fa-eye toggle-pass" onclick="togglePass('loginPass', this)"></i>
+        </div>
+        
+        <button type="submit">Ingresar</button>
+      </form>
+  </div>
+
+  <!-- PANEL DESLIZANTE -->
+  <div class="toggle-container">
+      <div class="toggle">
+          <div class="toggle-panel toggle-left">
+              <h1>Bienvenido a la Plataforma Educativa</h1>
+              <br>
+              <p>
+              Accede al sistema para coordinar el préstamo y donación de equipos
+              educativos entre instituciones, garantizando seguimiento,
+              transparencia y una asignación justa de recursos.
+              </p>
+              <br>
+              <button class="hidden" id="login">Iniciar sesión</button>
+          </div>
+
+          <div class="toggle-panel toggle-right">
+              <h1>Únete a la Red Educativa</h1>
+              <br>
+              <p>
+              Registra tu institución para colaborar en la gestión de recursos
+              educativos, facilitando el acceso a materiales y fortaleciendo la
+              cooperación entre organizaciones.
+              </p>
+              <br>
+              <button class="hidden" id="register">Registrarse</button>
+          </div>
+      </div>
+  </div>
+
+</div>
+
+<!-- TOASTS: siempre fuera de los paneles -->
+<div id="toast-container"></div>
+
+
+
+<script src="Menu.js"></script>
+</body>
+</html>

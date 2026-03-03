@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="admin.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>Administrador</h2>
+    <nav>
+      <button onclick="mostrar('inicio')">Dashboard</button>
+      <button onclick="mostrar('usuarios')">Usuarios</button>
+      <button onclick="mostrar('solicitudes')">Solicitudes</button>
+      <button onclick="mostrar('mensajes')">Mensajes</button> 
+    </nav>
+    <button class="logout" onclick="logout()">Cerrar sesión</button>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <header>
+      <h1>Panel de Control</h1>
+    </header>
+
+    <section class="contenido">
+
+      <!-- Dashboard -->
+      <section id="inicio" class="seccion">
+        <div id="dashboardCards" class="cards">
+
+          <!-- Fila superior -->
+          <div class="card">
+            <h3>Total de usuarios</h3>
+            <p id="totalUsuarios"></p>
+          </div>
+          <div class="card">
+            <h3>Usuarios último mes</h3>
+            <p id="usuariosUltimoMes">Cargando...</p>
+          </div>
+          <div class="card">
+            <h3>Usuario con más donaciones</h3>
+            <p id="topDonador" class="texto-pequeno">Cargando...</p>
+          </div>
+
+          <!-- Fila inferior -->
+          <div class="card">
+            <h3>Instituciones beneficiadas</h3>
+            <p id="totalInstituciones">Cargando...</p>
+          </div>
+          <div class="card">
+            <h3>Total de dinero acumulado</h3>
+            <p id="totalDinero"></p>
+          </div>
+          <div class="card">
+            <h3>Porcentaje de aprobación</h3>
+            <p id="porcentajeAprobacion">0%</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Usuarios -->
+      <section id="usuarios" class="seccion oculto">
+        <h2>Usuarios Registrados</h2>
+        <br>
+
+        <div class="cards contadores-usuarios">
+          <div class="card contador">
+            <h3>Donadores</h3>
+            <p id="totalDonadores"></p>
+          </div>
+          <div class="card contador">
+            <h3>Beneficiarios</h3>
+            <p id="totalBeneficiarios"></p>
+          </div>
+        </div>
+
+        <div class="tablas-usuarios">
+
+          <div class="tabla-usuario">
+            <h3>Lista de Donadores</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Institución</th>
+                  <th>Correo</th>
+                  <th>Rol</th>
+                </tr>
+              </thead>
+              <tbody id="tablaDonadores"></tbody>
+            </table>
+            <button id="verMasDonadores" class="btn-ver-mas">Ver Más</button>
+          </div>
+          
+          <div class="tabla-usuario">
+            <h3>Lista de Beneficiarios</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Institución</th>
+                  <th>Correo</th>
+                  <th>Rol</th>
+                </tr>
+              </thead>
+              <tbody id="tablaBeneficiarios"></tbody>
+            </table>
+            <button id="verMasBeneficiarios" class="btn-ver-mas">Ver Más</button>
+          </div>          
+        </div>
+      </section>
+
+      <!-- 🔹 MODAL PERFIL DE USUARIO -->
+      <div id="modalUsuario" class="modal-oculto">
+        <div class="modal-contenido">
+          <span id="cerrarModalUsuario" class="cerrar">&times;</span>
+          <h3 id="tituloModalUsuario">Usuario</h3>
+
+          <div id="detalleUsuario">
+            <p><strong>ID:</strong> <span id="usuarioId"></span></p>
+            <p><strong>Nombre:</strong> <span id="usuarioNombre"></span></p>
+            <p><strong>Correo:</strong> <span id="usuarioCorreo"></span></p>
+            <p><strong>Rol:</strong> <span id="usuarioRol"></span></p>
+            <p><strong>Institución:</strong> <span id="usuarioInstitucion"></span></p>
+            <p><strong>Fecha de registro:</strong> <span id="usuarioFecha"></span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solicitudes -->
+      <section id="solicitudes" class="seccion oculto">
+        <h2>Solicitudes</h2>
+        <br>
+
+        <div class="solicitudes-container">
+
+          <div class="col-estado">
+            <h3>Pendientes</h3>
+            <div id="pendientesList" class="solicitudes-list"></div>
+            <button id="verMasPendiente" class="btn-ver-mas">Ver Más</button>
+          </div>
+
+          <div class="col-estado">
+            <h3>Aprobadas</h3>
+            <div id="aprobadasList" class="solicitudes-list"></div>
+            <button id="verMasAprobada" class="btn-ver-mas">Ver Más</button>
+          </div>
+
+          <div class="col-estado">
+            <h3>Rechazadas</h3>
+            <div id="rechazadasList" class="solicitudes-list"></div>
+            <button id="verMasRechazada" class="btn-ver-mas">Ver Más</button>
+          </div>
+
+        </div>
+      </section>
+
+    <!-- ==============================
+        SECCIÓN MENSAJES
+    =============================== -->
+
+<section id="mensajes" class="seccion oculto">
+  <div class="chat-container">
+
+    <!-- ======================
+         PANEL IZQUIERDO: Conversaciones
+    ====================== -->
+    <div class="panel-conversaciones">
+
+      <!-- Card de lista de conversaciones -->
+      <div id="listaConversaciones" class="lista-conversaciones">
+
+        <!-- 🔹 Botón Nuevo Mensaje -->
+        <div class="nuevo-mensaje-wrapper">
+          <button id="btnNuevoMensaje" class="btn-nuevo-mensaje">
+            Nuevo Mensaje
+          </button>
+        </div>
+
+        <!-- 🔹 Contenedor de conversaciones existentes -->
+        <div id="contenedorConversaciones" class="contenedor-conversaciones">
+          <p>Cargando conversaciones...</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ======================
+         PANEL DERECHO: Chat activo
+    ====================== -->
+    <div id="chatActivo" class="chat-activo oculto">
+      <!-- Header del chat -->
+      <div id="chatHeader" class="chat-header">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Avatar">
+        <span id="nombreChatActivo">Usuario</span>
+      </div>
+
+
+                    <!-- Barra de búsqueda -->
+                    <div class="chat-busqueda">
+                      <input type="text" id="buscarMensajes" placeholder="Buscar mensajes...">
+                    </div>
+
+      <div id="chatMensajes" class="chat-mensajes"></div>
+      <div class="chat-input">
+        <input type="text" id="mensajeInput" placeholder="Escribe un mensaje...">
+        <button id="enviarMensaje">Enviar</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ======================
+       MODAL NUEVO MENSAJE
+  ====================== -->
+  <div id="modalNuevoMensaje_msg" class="modal-nuevo-mensaje_msg oculto">
+    <div class="modal-contenido-grande_msg">
+
+      <h3>Selecciona un usuario</h3>
+
+      <!-- Barra de búsqueda -->
+      <input type="text" id="buscarUsuario" placeholder="Buscar usuario..." />
+
+      <!-- Contenedor de columnas (3 columnas verticales) -->
+      <div class="usuarios-roles">
+
+        <!-- Administradores -->
+        <div class="usuarios-tipo_msg">
+          <h4>Administrador</h4>
+          <div class="listaUsuariosAdmin_msg"></div>
+        </div>
+
+        <!-- Donadores -->
+        <div class="usuarios-tipo_msg">
+          <h4>Donadores</h4>
+          <div class="listaUsuariosDonador_msg"></div>
+        </div>
+
+        <!-- Beneficiarios -->
+        <div class="usuarios-tipo_msg">
+          <h4>Beneficiarios</h4>
+          <div class="listaUsuariosBeneficiario_msg"></div>
+        </div>
+
+      </div>
+
+      <!-- Botón de cerrar modal -->
+      <button id="cerrarModalNuevo_msg" class="btn-cerrar-modal_msg">Cerrar</button>
+    </div>
+  </div>
+</section>
+
+    </section>
+  </main>
+
+</div>
+
+<!-- 🔹 MODAL DETALLE  -->
+<div id="modalSolicitud" class="modal-detalle-overlay">
+  <div class="modal-detalle">
+    <div class="modal-detalle-header">
+      <h3>Detalle de Solicitud</h3>
+      <span id="cerrarModal" class="cerrar-detalle">&times;</span>
+    </div>
+
+    <div class="modal-detalle-body">
+      <div class="detalle-item">
+        <span>ID</span>
+        <strong id="modalId"></strong>
+      </div>
+
+      <div class="detalle-item">
+        <span>Usuario que envía</span>
+        <strong id="modalUsuario"></strong>
+      </div>
+
+      <div class="detalle-item">
+        <span>Beneficiario</span>
+        <strong id="modalBeneficiario"></strong>
+      </div>
+
+      <div class="detalle-item">
+        <span>Tipo</span>
+        <strong id="modalTipo"></strong>
+      </div>
+
+      <div class="detalle-item">
+        <span>Cantidad / Descripción</span>
+        <strong id="modalCantidad"></strong>
+      </div>
+
+      <div class="detalle-item">
+        <span>Fecha</span>
+        <strong id="modalFecha"></strong>
+      </div>
+    </div>
+
+    <div class="modal-detalle-footer">
+      <button id="aceptarSolicitud" class="btn-aceptar">Aceptar</button>
+      <button id="rechazarSolicitud" class="btn-rechazar">Rechazar</button>
+    </div>
+  </div>
+</div>
+
+<!-- 🔹 MODAL VER MÁS (CON PAGINACIÓN) -->
+<div id="modalVerMas" class="modal-oculto">
+  <div class="modal-contenido">
+    <span id="cerrarModalVerMas" class="cerrar">&times;</span>
+    <h3 id="tituloModalVerMas"></h3>
+
+    <div id="listaModalVerMas"></div>
+
+    <div class="paginacion-modal">
+      <button id="prevPage" class="btn-paginacion">Anterior</button>
+      <span id="pageIndicator" class="page-indicator"></span>
+      <button id="nextPage" class="btn-paginacion">Siguiente</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast-container"></div>  <!-- Notificacion --> 
+<script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,1263 @@
+/* -------------------------
+   Reset y fuentes
+------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #f0f4ff, #d9e4ff);
+    color: #1f2937;
+}
+
+/* -------------------------
+   Layout general
+------------------------- */
+.dashboard-beneficiario {
+    display: flex;
+    height: 100vh; 
+}
+
+/* -------------------------
+   Sidebar
+------------------------- */
+.sidebar {
+    width: 260px;
+    background: #ffffff;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 15px rgba(0,0,0,0.06);
+}
+
+.sidebar h2 {
+    margin-bottom: 30px;
+    color: #2d3748;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sidebar button {
+    background: #f8fafc;
+    border: none;
+    padding: 14px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.sidebar button:hover {
+    background: #c7d2fe;
+    transform: translateX(6px);
+}
+
+.logout {
+    margin-top: auto;
+    background: #fecaca !important;
+    color: #b91c1c;
+    font-weight: 600;
+}
+
+.logout:hover {
+    background: #fca5a5 !important;
+}
+
+/* -------------------------
+   Main
+------------------------- */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    background: #ffffff;
+    padding: 25px 35px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+header h1 {
+    color: #1f2937;
+    margin-bottom: 6px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+header p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* -------------------------
+   Sección Inicio
+------------------------- */
+
+.contenido {
+    flex: 1;                 /* 🔥 ocupa todo el espacio disponible */
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    overflow: hidden;        /* importante */
+}
+
+/* Contenedor principal con GRID */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+/* Card estilo dashboard */
+.card-dashboard {
+    background: #ffffff;
+    padding: 22px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+}
+
+.card-dashboard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+}
+
+/* Icono */
+.card-icon {
+    background: #e0e7ff;
+    color: #4338ca;
+    font-size: 22px;
+    width: 55px;
+    height: 55px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Info */
+.card-info h3 {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.card-info p {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+
+/* -------------------------
+   Card gráfica centrada y más pequeña
+------------------------- */
+
+.card-grafica {
+    grid-column: span 4;        /* sigue ocupando la fila completa */
+    display: flex;
+    flex-direction: column;
+    align-items: center;        /* centra contenido horizontal */
+    justify-content: center;
+    
+    max-width: 500px;           /* tamaño más pequeño */
+    margin: 0 auto;             /* centra la card */
+    padding: 30px;
+}
+
+/* Centrar el título */
+.card-grafica h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Ajustar tamaño del canvas */
+.card-grafica canvas {
+    width: 280px !important;    /* tamaño controlado */
+    height: 280px !important;
+}
+
+@media (max-width: 1024px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-grafica {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    .card-grafica {
+        grid-column: span 1;
+    }
+}
+
+/* ===========================
+   INVENTARIO ESTILO PREMIUM
+=========================== */
+
+#inventario {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: #f4f5f7;
+    border-radius: 16px;
+}
+
+/* Contenedor interno */
+.inventario-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Cards superiores */
+.inventario-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* ===========================
+   CARD TABLA INVENTARIO PREMIUM
+=========================== */
+.card-tabla-inventario {
+    flex: none;                 /* altura fija */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* espacio entre tabla y paginación */
+    padding: 0;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    height: 500px;              /* altura fija */
+    overflow: hidden;
+}
+
+/* Encabezado con degradado */
+.card-tabla-inventario h3 {
+    margin: 0;
+    padding: 15px 0;
+    width: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+/* Tabla se expande */
+.card-tabla-inventario table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 14px;
+    color: #1f2937;
+}
+
+/* Encabezado de tabla */
+.card-tabla-inventario thead th {
+    background-color: #f3f4f6;
+    color: #4b5563;
+    font-weight: 600;
+    padding: 12px 8px;
+    border-bottom: 1px solid #e5e7eb;
+    text-transform: uppercase;
+}
+
+/* Filas de tabla */
+.card-tabla-inventario tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+    transition: background 0.2s;
+}
+
+.card-tabla-inventario tbody tr:hover {
+    background-color: #f0f4ff;
+}
+
+/* Celdas */
+.card-tabla-inventario tbody td {
+    padding: 10px 5px;
+}
+
+/* Contenedor de tabla para ocupar espacio restante */
+.card-tabla-inventario table,
+.card-tabla-inventario tbody {
+    display: block;
+    height: calc(100% - 60px); /* deja espacio para encabezado y paginación */
+    overflow-y: hidden; /* No scroll, ya que usamos paginación */
+}
+
+.card-tabla-inventario thead,
+.card-tabla-inventario tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+/* ===========================
+   PAGINACIÓN FIJA ABAJO
+=========================== */
+.paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #374151;
+    background: #f9fafb;        /* ligeramente distinto del fondo */
+    border-top: 1px solid #e5e7eb;
+    flex-shrink: 0;              /* nunca se achica */
+}
+
+/* Botones de paginación */
+.paginacion button {
+    background-color: #667eea;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.paginacion button:hover {
+    background-color: #5a67d8;
+    transform: translateY(-1px);
+}
+
+.paginacion button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.paginacion span {
+    font-weight: 500;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 768px) {
+    .inventario-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ===========================
+   Barra de búsqueda profesional
+=========================== */
+.busqueda-inventario {
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.busqueda-inventario input {
+    max-width: 600px;
+    padding: 10px 14px;
+    font-size: 14px;
+    border: 1px solid #cbd5e1; /* borde gris suave */
+    border-radius: 12px;        /* bordes redondeados */
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* sombra interior sutil */
+    text-align: center;
+    font-weight: 500;
+}
+
+.busqueda-inventario input:hover {
+    border-color: #667eea; /* resalta al pasar el cursor */
+}
+
+.busqueda-inventario input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 8px rgba(102, 126, 234, 0.4); /* efecto glow */
+}
+
+/* =====================================================
+   DONACIONES BENEFICIARIO - ESTILO AISLADO
+===================================================== */
+
+#donaciones-beneficiario {
+    width: 100%;
+  }
+  
+  /* Card contenedora */
+  #donaciones-beneficiario #card-dashboard-beneficiario {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Título */
+  #donaciones-beneficiario #titulo-donaciones-beneficiario {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #1f2937;
+  }
+  
+  /* Wrapper tabla */
+  #donaciones-beneficiario #table-beneficiario-wrapper {
+    width: 100%;
+    overflow-x: auto; /* Responsive horizontal */
+  }
+  
+  /* Tabla */
+  #donaciones-beneficiario #tabla-donaciones-beneficiario {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    min-width: 600px;
+  }
+  
+  /* Encabezados */
+  #donaciones-beneficiario #tabla-donaciones-beneficiario thead {
+    background: #f8fafc;
+  }
+  
+  #donaciones-beneficiario #tabla-donaciones-beneficiario th {
+    padding: 16px 18px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  /* Celdas */
+  #donaciones-beneficiario #tabla-donaciones-beneficiario td {
+    padding: 16px 18px;
+    font-size: 14px;
+    color: #1f2937;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: top;
+  }
+  
+  /* Última fila sin borde */
+  #donaciones-beneficiario 
+  #tabla-donaciones-beneficiario tr:last-child td {
+    border-bottom: none;
+  }
+  
+  /* Hover moderno */
+  #donaciones-beneficiario 
+  #tabla-donaciones-beneficiario tbody tr:hover {
+    background: #f9fafb;
+    transition: background 0.2s ease;
+  }
+  
+  /* Lista de útiles dentro de tabla */
+  #donaciones-beneficiario 
+  #tabla-donaciones-beneficiario ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+  
+  #donaciones-beneficiario 
+  #tabla-donaciones-beneficiario ul li {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  
+  /* Mensaje sin donaciones */
+  #donaciones-beneficiario 
+  #tabla-donaciones-beneficiario td[colspan="4"] {
+    text-align: center;
+    padding: 20px;
+    font-weight: 500;
+    color: #64748b;
+  }
+  
+  /* Responsive para móvil */
+  @media (max-width: 768px) {
+  
+    #donaciones-beneficiario #card-dashboard-beneficiario {
+      padding: 16px;
+    }
+  
+    #donaciones-beneficiario #titulo-donaciones-beneficiario {
+      font-size: 18px;
+    }
+  
+    #donaciones-beneficiario #tabla-donaciones-beneficiario th,
+    #donaciones-beneficiario #tabla-donaciones-beneficiario td {
+      padding: 12px;
+      font-size: 13px;
+    }
+  }
+
+  /* Modal Donación */
+.modal-donacion {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none; /* Oculto por defecto */
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  .modal-donacion .modal-contenido {
+    position: relative;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .modal-donacion h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    color: #4338ca;
+  }
+  
+  .modal-donacion p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .modal-donacion .btn-cerrar {
+    position: absolute;    
+    top: 10px;             
+    right: 10px;           
+    font-size: 22px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.2s;
+    background: none;      
+    border: none;
+    padding: 0;
+}
+
+.modal-donacion .btn-cerrar:hover {
+    color: #e74c3c;
+}
+  
+  /* Animación modal */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ==============================
+   PERFIL BENEFICIARIO
+   ============================== */
+
+#perfil {
+    margin-top: 20px;
+  }
+  
+  #perfil .perfil-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+    /* Título centrado */
+    #perfil .perfil-titulo {
+        text-align: center;
+        font-size: 28px;
+        font-weight: 700;
+        color: #1f2937;
+        margin-bottom: 20px;
+    }
+
+  /* ------------------------------
+     Avatar
+  ------------------------------ */
+  #perfil .perfil-avatar {
+    flex: 0 0 150px;
+    text-align: center;
+  }
+  
+  #perfil .perfil-avatar img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #7f9cf5;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  
+  #perfil .perfil-avatar img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* ------------------------------
+     Información Principal
+  ------------------------------ */
+  #perfil .perfil-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  #perfil .perfil-info h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f2937;
+  }
+  
+  #perfil .perfil-info .rol {
+    font-size: 16px;
+    font-weight: 500;
+    color: #4f46e5;
+  }
+  
+  /* ------------------------------
+     Datos del perfil (visibles)
+  ------------------------------ */
+  #perfil .perfil-datos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  #perfil .perfil-datos .dato {
+    background: #f1f5fe;
+    padding: 12px 18px;
+    border-radius: 12px;
+    flex: 1 1 200px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s;
+  }
+  
+  #perfil .perfil-datos .dato:hover {
+    background: #e0e7ff;
+  }
+  
+  #perfil .perfil-datos .label {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  #perfil .perfil-datos .value {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1f2937;
+  }
+  
+  /* ------------------------------
+     Botón Editar
+  ------------------------------ */
+  #perfil .btn-editar {
+    margin-top: 10px;
+    width: 150px;
+    padding: 10px 15px;
+    background: #7f9cf5;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+  }
+  
+  #perfil .btn-editar:hover {
+    background: #647acb;
+  }
+  
+  /* ------------------------------
+     Sección de edición
+  ------------------------------ */
+  #perfil .perfil-editar {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+  }
+  
+  #perfil .perfil-editar .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #perfil .perfil-editar .form-group label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+  #perfil .perfil-editar .form-group input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-size: 14px;
+  }
+  
+  /* ------------------------------
+     Contraseña con toggle
+  ------------------------------ */
+  #perfil .password-wrapper {
+    position: relative;
+  }
+  
+  #perfil .password-wrapper input {
+    width: 100%;
+    padding-right: 40px;
+    box-sizing: border-box;
+  }
+  
+  #perfil .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 13px;
+    cursor: pointer;
+    color: #555;
+    font-size: 16px;
+    transition: color 0.2s;
+  }
+  
+  #perfil .toggle-password:hover {
+    color: #000;
+  }
+  
+  /* ------------------------------
+     Botones guardar/cancelar
+  ------------------------------ */
+  #perfil .perfil-editar button {
+    width: fit-content;
+    padding: 10px 15px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  #perfil #guardarPerfilB {
+    background-color: #7f9cf5;
+    color: #fff;
+  }
+  
+  #perfil #guardarPerfilB:hover {
+    background-color: #647acb;
+  }
+  
+  #perfil #cancelarEdicionB {
+    background-color: #fca5a5;
+    color: #fff;
+  }
+  
+  #perfil #cancelarEdicionB:hover {
+    background-color: #f87171;
+  }
+  
+  /* ------------------------------
+     Oculto
+  ------------------------------ */
+  .oculto {
+    display: none;
+  }
+
+
+/* ===============================
+   SECCIÓN MENSAJES
+=============================== */
+
+/* Contenedor principal del chat */
+#mensajes .chat-container {
+  display: flex;
+  gap: 20px;
+  height: calc(100vh - 100px); /* Ajuste según header */
+  padding: 20px;
+}
+
+/* Lista de conversaciones */
+#mensajes #listaConversaciones {
+  width: 250px;
+  height: 600px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  overflow-y: auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#mensajes #listaConversaciones p {
+  color: #888;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Cada usuario / conversación */
+#mensajes .usuario-conversacion {
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  background-color: #f1f3f6;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#mensajes .usuario-conversacion:hover,
+#mensajes .usuario-conversacion.activo {
+  background-color: #dfe6ed;
+}
+
+/* Chat activo */
+#mensajes #chatActivo {
+  flex: 1;
+  display: flex;
+  height: 600px;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* Contenedor de mensajes */
+#mensajes #chatMensajes {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #f9fafc;
+}
+
+/* Burbuja de mensaje */
+#mensajes .mensaje {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+#mensajes .mensaje.own {
+  background-color: #1f8ef1;
+  color: #fff;
+  align-self: flex-end;
+  border-bottom-right-radius: 0;
+}
+
+#mensajes .mensaje.other {
+  background-color: #e0e6ed;
+  color: #333;
+  align-self: flex-start;
+  border-bottom-left-radius: 0;
+}
+
+/* Input para enviar mensaje */
+#mensajes .chat-input {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+#mensajes #mensajeInput {
+  flex: 1;
+  padding: 12px 15px;
+  border: none;
+  font-size: 14px;
+}
+
+#mensajes #enviarMensaje {
+  padding: 12px 20px;
+  background-color: #1f8ef1;
+  color: #fff;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+#mensajes #enviarMensaje:hover {
+  background-color: #0d6efd;
+}
+
+/* Scroll personalizado */
+#mensajes #chatMensajes::-webkit-scrollbar,
+#mensajes #listaConversaciones::-webkit-scrollbar {
+  width: 6px;
+}
+
+#mensajes #chatMensajes::-webkit-scrollbar-thumb,
+#mensajes #listaConversaciones::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+
+/* 🔹 Contenedor del botón */
+.nuevo-mensaje-wrapper {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/* 🔹 Botón Nuevo Mensaje */
+.btn-nuevo-mensaje {
+  width: 100%;
+  padding: 8px 10px;
+  background: #4CAF50;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* 🔹 Hover */
+.btn-nuevo-mensaje:hover {
+  background: #45a049;
+}
+
+/* 🔹 Click */
+.btn-nuevo-mensaje:active {
+  transform: scale(0.98);
+}
+
+/* ===============================
+   MODAL NUEVO MENSAJE: 3 columnas verticales
+=============================== */
+.modal-nuevo-mensaje_msg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-nuevo-mensaje_msg .modal-contenido-grande_msg {
+  background: #fff;
+  padding: 25px;
+  width: 900px; /* ancho para 3 columnas */
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+/* Barra de búsqueda */
+#buscarUsuario {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+/* Contenedor de las 3 columnas */
+.usuarios-roles {
+  display: flex;
+  gap: 15px;
+  height: 400px; /* altura del scroll */
+}
+
+/* Cada columna vertical */
+.usuarios-tipo_msg {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px;
+  overflow-y: auto; /* scroll si hay muchos usuarios */
+  box-sizing: border-box;
+}
+
+/* Título de cada columna */
+.usuarios-tipo_msg h4 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Lista de usuarios dentro de cada columna */
+.listaUsuariosAdmin_msg,
+.listaUsuariosBeneficiario_msg,
+.listaUsuariosDonador_msg {
+  display: flex;
+  flex-direction: column; /* apilado vertical */
+  gap: 6px;
+}
+
+/* Tarjeta de usuario */
+.usuario-item_msg {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background-color: #e1f0ff;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.usuario-item_msg:hover {
+  background-color: #c3e0ff;
+  transform: translateX(2px);
+}
+
+/* Botón de cerrar modal */
+.btn-cerrar-modal_msg {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  background-color: #e74c3c;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-cerrar-modal_msg:hover {
+  background-color: #c0392b;
+}
+
+/* Botón "Cargar más" */
+.btn-cargar-mas {
+  margin-top: 10px;
+  padding: 6px;
+  background-color: #1f8ef1;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+.btn-cargar-mas:hover {
+  background-color: #0d6efd;
+}
+
+/* Scroll personalizado */
+.listaUsuariosAdmin_msg::-webkit-scrollbar,
+.listaUsuariosBeneficiario_msg::-webkit-scrollbar,
+.listaUsuariosDonador_msg::-webkit-scrollbar {
+  width: 6px;
+}
+
+.listaUsuariosAdmin_msg::-webkit-scrollbar-thumb,
+.listaUsuariosBeneficiario_msg::-webkit-scrollbar-thumb,
+.listaUsuariosDonador_msg::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+
+/* ================== Header del Chat ================== */
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espacio entre avatar y nombre */
+  background-color: white; /* Azul profesional */
+  color: black;
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 16px;
+  border-bottom: 1px solid #0056b3;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 8px 8px 0 0;
+}
+
+/* Avatar del usuario en el header */
+.chat-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+/* Nombre del chat */
+#nombreChatActivo {
+  font-size: 16px;
+  font-weight: 600;
+  flex: 1; /* Ocupa todo el espacio disponible */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Para mensajes */
+#chatMensajes {
+  max-height: calc(100% - 60px - 56px); /* Restar header + input */
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #f8f9fa;
+}
+
+/* Mensajes propios */
+.mensaje.own {
+  align-self: flex-end;
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 16px 16px 0 16px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+/* Mensajes de otros */
+.mensaje.other {
+  align-self: flex-start;
+  background-color: #e9ecef;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 16px 16px 16px 0;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+/* Input del chat */
+.chat-input {
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px;
+  border-top: 1px solid #ccc;
+  background-color: white;
+  position: sticky;
+  bottom: 0;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.chat-input button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  background-color: #007bff;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.chat-input button:hover {
+  background-color: #0056b3;
+}
+
+.mensaje-hora {
+  display: block;
+  font-size: 0.7em;
+  color: white;
+  margin-top: 2px;
+  text-align: right;
+}
+
+.chat-busqueda {
+  padding: 8px 12px;
+  border-bottom: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.chat-busqueda input {
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.chat-busqueda input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0,123,255,0.3);
+}
+
+.mensaje-leido {
+  font-size: 12px;
+  color: #b60707;
+  margin-left: 5px;
+}
+
+.usuario-conversacion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+
+.badge-no-leidos {
+  background: red;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 12px;
+  margin-left: 8px;
+}
